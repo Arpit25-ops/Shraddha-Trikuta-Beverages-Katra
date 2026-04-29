@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shraddha Trikuta Beverages</title>
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #eef7ff;
+}
+
+header {
+  background: linear-gradient(90deg,#0077b6,#00b4d8);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  padding: 15px;
+}
+
+.product {
+  background: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.product span {
+  font-weight: bold;
+}
+
+input {
+  width: 60px;
+  padding: 5px;
+}
+
+.total {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.order-btn { background: #0077b6; color: white; }
+.pay-btn { background: #00b894; color: white; }
+
+.footer {
+  background: #0077b6;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Shraddha Trikuta Beverages</h2>
+<p>Pure Water, Pure Trust</p>
+</header>
+
+<div class="container">
+
+<h3>Order Now</h3>
+
+<div class="product"> <span>250ml - ₹6</span> <input type="number" id="p1" min="0" value="0" onchange="calc()"> </div>
+<div class="product"> <span>500ml - ₹10</span> <input type="number" id="p2" min="0" value="0" onchange="calc()"> </div>
+<div class="product"> <span>1 Litre - ₹20</span> <input type="number" id="p3" min="0" value="0" onchange="calc()"> </div>
+<div class="product"> <span>2 Litre - ₹35</span> <input type="number" id="p4" min="0" value="0" onchange="calc()"> </div>
+<div class="product"> <span>Soda 600ml - ₹20</span> <input type="number" id="p5" min="0" value="0" onchange="calc()"> </div>
+
+<div class="total" id="total">Total: ₹0</div>
+
+<button class="order-btn" onclick="orderNow()">Order on WhatsApp</button>
+
+<h3>UPI Payment</h3>
+<p><b>UPI ID:</b> yourupi@bank</p>
+
+<button class="pay-btn" onclick="upi()">Pay Now</button>
+
+</div>
+
+<div class="footer">
+📞 7051690910 | 📧 arpitsingh8868@gmail.com
+</div>
+
+<script>
+
+function calc() {
+  let total =
+    (6*p1.value)+(10*p2.value)+(20*p3.value)+(35*p4.value)+(20*p5.value);
+
+  document.getElementById("total").innerText = "Total: ₹" + total;
+}
+
+function orderNow() {
+  let msg = "Order Details:%0A";
+
+  if(p1.value>0) msg += "250ml x "+p1.value+"%0A";
+  if(p2.value>0) msg += "500ml x "+p2.value+"%0A";
+  if(p3.value>0) msg += "1L x "+p3.value+"%0A";
+  if(p4.value>0) msg += "2L x "+p4.value+"%0A";
+  if(p5.value>0) msg += "Soda x "+p5.value+"%0A";
+
+  let total =
+    (6*p1.value)+(10*p2.value)+(20*p3.value)+(35*p4.value)+(20*p5.value);
+
+  msg += "%0ATotal: ₹"+total;
+
+  window.open("https://wa.me/917051690910?text="+msg);
+}
+
+function upi(){
+  alert("Pay using your UPI app with given UPI ID");
+}
+
+</script>
+
+</body>
+</html>
