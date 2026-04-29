@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shraddha Trikuta Beverages</title>
 
+<style>
+body {margin:0;font-family:Arial;background:#eef7ff;}
+header {background:linear-gradient(#0077b6,#00b4d8);color:white;text-align:center;padding:30px;}
+nav {background:#023e8a;padding:10px;text-align:center;}
+nav a {color:white;margin:10px;text-decoration:none;font-weight:bold;}
+
+.hero {
+  text-align:center;
+  padding:40px;
+  background:url('https://images.unsplash.com/photo-1502741338009-cac2772e18bc') center/cover;
+  color:white;
+}
+.hero button {margin:10px;padding:10px 20px;font-size:16px;}
+
+section {padding:20px;}
+h2 {color:#0077b6;}
+
+.card {
+  background:white;padding:15px;margin:10px 0;
+  border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.product {display:flex;justify-content:space-between;align-items:center;}
+input {width:60px;}
+
+button {
+  padding:10px;border:none;border-radius:5px;
+  background:#0077b6;color:white;cursor:pointer;
+}
+
+.footer {background:#0077b6;color:white;text-align:center;padding:15px;}
+
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px;
+  border-radius:50%;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Shraddha Trikuta Beverages</h1>
+<p>Pure Water, Pure Trust</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#products">Products</a>
+<a href="#distributor">Distributor</a>
+<a href="#order">Order</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="hero">
+<h1>Fresh & Pure Drinking Water</h1>
+<p>Serving Katra since 2021</p>
+<button onclick="document.getElementById('order').scrollIntoView()">Order Now</button>
+<button onclick="document.getElementById('distributor').scrollIntoView()">Become Distributor</button>
+</div>
+
+<section id="about">
+<h2>About Us</h2>
+<p>We provide UV treated & ozonated safe drinking water with trusted Bailey standards.</p>
+</section>
+
+<section id="products">
+<h2>Products</h2>
+<div class="card">250ml – ₹6</div>
+<div class="card">500ml – ₹10</div>
+<div class="card">1L – ₹20</div>
+<div class="card">2L – ₹35</div>
+<div class="card">Soda 600ml – ₹20</div>
+</section>
+
+<section id="distributor">
+<h2>Become a Distributor</h2>
+<p>Grow your business with high demand Bailey water.</p>
+
+<form>
+<input type="text" placeholder="Your Name" required><br><br>
+<input type="text" placeholder="Shop Name"><br><br>
+<input type="text" placeholder="Phone"><br><br>
+<button type="submit">Apply Now</button>
+</form>
+
+</section>
+
+<section id="order">
+<h2>Order Now</h2>
+
+<div class="card product">250ml ₹6 <input type="number" id="p1" value="0" onchange="calc()"></div>
+<div class="card product">500ml ₹10 <input type="number" id="p2" value="0" onchange="calc()"></div>
+<div class="card product">1L ₹20 <input type="number" id="p3" value="0" onchange="calc()"></div>
+<div class="card product">2L ₹35 <input type="number" id="p4" value="0" onchange="calc()"></div>
+<div class="card product">Soda ₹20 <input type="number" id="p5" value="0" onchange="calc()"></div>
+
+<h3 id="total">Total: ₹0</h3>
+
+<button onclick="orderNow()">Order on WhatsApp</button>
+
+<h3>UPI Payment</h3>
+<p>UPI ID: yourupi@bank</p>
+
+</section>
+
+<section>
+<h2>Our Plant</h2>
+<p>Modern filtration, hygiene, UV & ozonation ensures purity.</p>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p>📞 7051690910</p>
+<p>📧 arpitsingh8868@gmail.com</p>
+<p>📍 Panthal, Katra, J&K</p>
+
+<iframe src="https://maps.google.com/maps?q=katra&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="100%" height="200"></iframe>
+
+</section>
+
+<div class="footer">
+© Shraddha Trikuta Beverages
+</div>
+
+<a class="whatsapp" href="https://wa.me/917051690910">💬</a>
+
+<script>
+function calc(){
+let total=(6*p1.value)+(10*p2.value)+(20*p3.value)+(35*p4.value)+(20*p5.value);
+document.getElementById("total").innerText="Total: ₹"+total;
+}
+
+function orderNow(){
+let msg="Order:%0A";
+if(p1.value>0) msg+="250ml x "+p1.value+"%0A";
+if(p2.value>0) msg+="500ml x "+p2.value+"%0A";
+if(p3.value>0) msg+="1L x "+p3.value+"%0A";
+if(p4.value>0) msg+="2L x "+p4.value+"%0A";
+if(p5.value>0) msg+="Soda x "+p5.value+"%0A";
+window.open("https://wa.me/917051690910?text="+msg);
+}
+</script>
+
+</body>
+</html>
